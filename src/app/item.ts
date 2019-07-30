@@ -12,6 +12,7 @@ export interface Item {
 
 export interface KDS extends Item {
   orderNumber: number ;
+  
 
 }
 export interface TicketModifier {

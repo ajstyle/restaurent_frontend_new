@@ -21,16 +21,26 @@ export class KdsComponent implements OnInit {
       // });
 
       this.firebase.getKDSOrder().subscribe(data => {
-
+        console.log(data);
         this.kdsArray = data.map(e => {
+          const id = e.payload.doc.id;
+
           return {
-            ...e.payload.doc.data()
-          } as KDS;
+            ...e.payload.doc.data(),
+            id
+          } as any;
         });
       });
       setTimeout(x => {
         console.log(this.kdsArray);
       }, 4000);
+  }
+
+  completeKds(kds) {
+    console.log(kds.id);
+    this.firebase.deleteKds(kds.id).then( x => {
+      console.log('Data deleted',x);
+    })
   }
 
 }

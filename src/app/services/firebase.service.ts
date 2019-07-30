@@ -36,7 +36,9 @@ export class FirebaseService {
   deleteUser(userKey) {
     return this.db.collection('users').doc(userKey).delete();
   }
-
+  deleteKds(kdsKey) {
+    return this.db.collection('KDS').doc(kdsKey).delete();
+  }
   getUsers() {
     return this.db.collection('users').snapshotChanges();
   }
@@ -73,6 +75,8 @@ export class FirebaseService {
     return this.db.collection('KDS').snapshotChanges();
 
   }
+
+
   createOrderHistory(value) {
     return this.db.collection('orderHistory').add({
       orderNumber: value.orderNumber,

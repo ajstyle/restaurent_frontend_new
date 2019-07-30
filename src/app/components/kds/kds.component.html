@@ -9,11 +9,21 @@
     <div class="row ">
        
 
-    <div class="col-md-4 mt-4"  *ngFor = 'let kds of kdsArray'>
-      <div class="card " >
-  
-     <span class = 'text-center orderHeading'>  Order No :  {{kds.orderInfo.orderNumber}} </span>
-  
+    <div class="col-md-4 mt-4"  *ngFor = 'let kds of kdsArray' >
+      <div class="card">
+        <div class = 'row'>
+            <div class = 'col-md-8'>
+     <span class = 'orderHeading'>  Order No:  {{kds.orderInfo.orderNumber}}
+
+    </span>
+    </div>
+    <div class = 'col-md-4'>
+      <button class=" btn-primary ">
+    <span (click) = 'completeKds(kds)' > <i class="fa fa-check-square" aria-hidden="true"></i>
+      Complete</span> 
+      </button>
+      </div>
+        </div>
        <mat-divider>  </mat-divider>
   
         <div class="card-body"  >
@@ -38,10 +48,11 @@
             
             <mat-divider style = 'margin-top: 11px;'>  </mat-divider>
 
+           
             </div>
       </div>
+
     </div>
-    
     </div>
   </div>
   </div>

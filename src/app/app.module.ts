@@ -51,7 +51,7 @@ import {FirebaseService} from './services/firebase.service' ;
     MaterialModule,
     BrowserAnimationsModule,
     FormsModule,
-    ReactiveFormsModule,
+    ReactiveFormsModule,  
     MDBBootstrapModule.forRoot()
   ],
   providers: [ApiService, PosService, ResponsiveService, FirebaseService],
