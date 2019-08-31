@@ -4,8 +4,8 @@ import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject , of} from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
-const URL = 'https://restaurantsbackend.herokuapp.com/api'
-//const URL = 'http://localhost:8000/api'
+//onst URL = 'https://restaurantsbackend.herokuapp.com/'
+const URL = 'http://localhost:8081'
 
 @Injectable()
 export class ApiService {
@@ -14,7 +14,11 @@ export class ApiService {
     const total = data.total ;
     let obj = {token , total} ;
     console.log('object-----',obj);
-    return this.http.post(`${URL}/payme`,obj);
+    return this.http.post(`${URL}/payment/payme`,obj);
+  }
+
+  getCustomToken(uid) {
+    return this.http.post(`${URL}/firebaseRoutes/customToken` , {uid})
   }
   seaFood() {
     return of(
@@ -966,7 +970,7 @@ export class ApiService {
           "Image": "https://i.imgur.com/YOQKo5C.jpg"
         }
       ])
-  }
+  } 
  
 
   mexicanFood() {

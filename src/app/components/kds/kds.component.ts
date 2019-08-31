@@ -39,7 +39,8 @@ export class KdsComponent implements OnInit {
   completeKds(kds) {
     console.log(kds.id);
     this.firebase.deleteKds(kds.id).then( x => {
-      console.log('Data deleted',x);
+      console.log('Data deleted', x);
+      
     })
   }
 

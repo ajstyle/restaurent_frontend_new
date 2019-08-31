@@ -21,6 +21,8 @@ import { NgxStripeModule } from 'ngx-stripe';
 import { HttpClientModule } from '@angular/common/http';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
+import { AngularFireAuth } from '@angular/fire/auth';
+
 import { environment } from '../environments/environment';
 
 import {FirebaseService} from './services/firebase.service' ;
@@ -42,7 +44,6 @@ import {FirebaseService} from './services/firebase.service' ;
     
     HttpClientModule,
     BrowserModule,
-    
     AngularFireModule.initializeApp(environment.firebase, 'Taqueria Chavez' ),
  	  AngularFirestoreModule,
  
@@ -54,7 +55,7 @@ import {FirebaseService} from './services/firebase.service' ;
     ReactiveFormsModule,  
     MDBBootstrapModule.forRoot()
   ],
-  providers: [ApiService, PosService, ResponsiveService, FirebaseService],
+  providers: [ApiService, PosService, ResponsiveService, FirebaseService,AngularFireAuth],
   entryComponents : [ModifiersDialogComponent, CheckoutComponent, OrderComponent, OrderNumberComponent],
   bootstrap: [AppComponent]
 })
