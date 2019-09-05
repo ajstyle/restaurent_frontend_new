@@ -145,27 +145,32 @@ this.selectedPayment = event.value ;
     console.log('posOrder===', this.pos.order);
     this.dialogRef.close();
 
-    this.router.navigate(['thankYou'] , {queryParams : {uid : ''}}) ;
+    //this.router.navigate(['thankYou'] , {queryParams : {uid : ''}}) ;
   }
 
   cashCharge() {
     console.log(this.pos.order) ;
-
-    this.firebase.getCurrentUser().subscribe(x=>console.log('users-----',x));
-    this.firebase.createKDSOrder(this.data).then( x => {console.log('x====', x);
-                                                        this.pos.order.paymentType = 'Cash' ;
-                                                        this.firebase.createOrderHistory(this.pos.order).then(
-                                                               x => {console.log('x======', x); 
-                                                              });
-
-  }  );
+    this.firebase.getCurrentUser().subscribe(user => {
+      console.log('-------',user,user.email);
+      this.firebase.createKDSOrder(this.data)
+      .then( order => {
+                   this.pos.order.paymentType = 'Cash' ;
+                   this.firebase.createOrderHistory(this.pos.order)
+                   .then(
+                         x => {
+                           console.log('x======', x);
+                         });
+  
+        });
+    });
+   
     this.orderList.push(this.data) ;
     this.pos.updateKDS(this.orderList) ;
     this.pos.order = this.data ;
     this.index.splice((this.index.length - 1 ) ,   1) ;
     console.log('length====' , this.index.length) ;
     if (this.index.length === 0 ) {
-      this.router.navigate(['thankYou'] , {queryParams : {uid : ''}}) ;
+     // this.router.navigate(['thankYou'] , {queryParams : {uid : 'erferfrrre'}}) ;
       this.dialogRef.close();
 
     }
