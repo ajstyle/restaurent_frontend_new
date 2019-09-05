@@ -40,6 +40,7 @@ if ( params.uid) {
             this.afAuth.auth.onAuthStateChanged(user => {
               if (user) {
                console.log(user);
+               
               } else {
               window.location.href = 'https://restaurants-user-profile.herokuapp.com/#/authentication/signin?order=true';
 
