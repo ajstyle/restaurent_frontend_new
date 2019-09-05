@@ -4,7 +4,7 @@ import {KDS} from '../../item' ;
 import {PosService} from '../../services/pos.service' ;
 import {ApiService} from '../../services/api.service' ;
 import Swal from 'sweetalert2';
-import {FirebaseService} from '../../services/firebase.service' ; 
+import {FirebaseService} from '../../services/firebase.service' ;
 import {Router} from '@angular/router' ;
 
 const taxRate = 8.3125 ;
@@ -64,7 +64,7 @@ this.selectedPayment = event.value ;
   }
 
   openCheckout(splitAmount) {
-    this.showSpinner = true ; 
+    this.showSpinner = true ;
 
     const handler = (window as any).StripeCheckout.configure({
       key: 'pk_test_cJM72ms6XPywuWC7mxBv7Lmm002j9ksdey',
@@ -81,7 +81,7 @@ this.selectedPayment = event.value ;
               type: 'success',
 
             }).then((result) => {
-              this.showSpinner = false ; 
+              this.showSpinner = false ;
 
               this.index.splice((this.index.length - 1 ) ,   1) ;
               console.log('length====' , this.index.length) ;
@@ -145,22 +145,27 @@ this.selectedPayment = event.value ;
     console.log('posOrder===', this.pos.order);
     this.dialogRef.close();
 
-    this.router.navigate(['thankYou']) ;
+    this.router.navigate(['thankYou'] , {queryParams : {uid : ''}}) ;
   }
 
   cashCharge() {
     console.log(this.pos.order) ;
-    this.firebase.createKDSOrder(this.data).then( x => {console.log('x====', x); }  );
+
+    this.firebase.getCurrentUser().subscribe(x=>console.log('users-----',x));
+    this.firebase.createKDSOrder(this.data).then( x => {console.log('x====', x);
+                                                        this.pos.order.paymentType = 'Cash' ;
+                                                        this.firebase.createOrderHistory(this.pos.order).then(
+                                                               x => {console.log('x======', x); 
+                                                              });
+
+  }  );
     this.orderList.push(this.data) ;
     this.pos.updateKDS(this.orderList) ;
-
-
     this.pos.order = this.data ;
-
     this.index.splice((this.index.length - 1 ) ,   1) ;
     console.log('length====' , this.index.length) ;
     if (this.index.length === 0 ) {
-      this.router.navigate(['thankYou']) ;
+      this.router.navigate(['thankYou'] , {queryParams : {uid : ''}}) ;
       this.dialogRef.close();
 
     }

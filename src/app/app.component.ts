@@ -36,12 +36,12 @@ if ( params.uid) {
           console.log(this.token);
           this.afAuth.auth.signInWithCustomToken(this.token.customToken).then(user => {
             console.log(user);
-
+            
             this.afAuth.auth.onAuthStateChanged(user => {
               if (user) {
-                console.log(user);
+               console.log(user);
               } else {
-              // window.location.href = 'http://localhost:5001/#/authentication/signin?order=true';
+              window.location.href = 'https://restaurants-user-profile.herokuapp.com/#/authentication/signin?order=true';
 
               }
             });
@@ -56,7 +56,7 @@ if ( params.uid) {
            });
          });
       } else {
-       window.location.href = 'http://localhost:5001/#/authentication/signin?order=true';
+       window.location.href = 'https://restaurants-user-profile.herokuapp.com/#/authentication/signin?order=true';
       }
   });
 

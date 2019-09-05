@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/firestore';
+import { AngularFirestore , } from '@angular/fire/firestore';
+import { AngularFireAuth } from '@angular/fire/auth';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,7 @@ export class FirebaseService {
         throw new Error('Method not implemented.');
     }
 
-  constructor(public db: AngularFirestore) {}
+  constructor(public db: AngularFirestore , public afAuth: AngularFireAuth ) {}
 
   getAvatars() {
       return this.db.collection('/avatar').valueChanges() ;
@@ -76,15 +77,21 @@ export class FirebaseService {
 
   }
 
+  getCurrentUser(){
+    return this.afAuth.user ;
+  }
+
+  
 
   createOrderHistory(value) {
+    console.log(value);
     return this.db.collection('orderHistory').add({
-      orderNumber: value.orderNumber,
-      paymentType: value.paymentType,
-      cost: value.total,
-      orderedFrom: value.orderedFrom,
-      order: value.order,
-      email: value.email
+      orderNumber: value.orderNumber || '',
+      paymentType: value.paymentType || '',
+      cost: value.total || '',
+      orderedFrom: value.orderedFrom || '',
+      order: value.order || '',
+      email: value.email || ''
     });
   }
 
