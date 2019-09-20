@@ -83,9 +83,9 @@ export class FirebaseService {
 
   
 
-  createOrderHistory(value) {
+  createOrderHistory(uid , value) {
     console.log(value);
-    return this.db.collection('orderHistory').add({
+    return this.db.collection('orderHistory').doc(uid).set({
       orderNumber: value.orderNumber || '',
       paymentType: value.paymentType || '',
       cost: value.total || '',

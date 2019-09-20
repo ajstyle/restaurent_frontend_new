@@ -5,7 +5,7 @@ import { Observable, BehaviorSubject , of} from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 
 const URL = 'https://restaurantsbackend.herokuapp.com';
-//const URL = 'http://localhost:8081'
+//const URL = 'http://localhost:5000'
 
 @Injectable()
 export class ApiService {
@@ -17,6 +17,12 @@ export class ApiService {
     return this.http.post(`${URL}/payment/payme`,obj);
   }
 
+
+  sendEmail(data){
+    console.log('receipt data' , data);
+    return this.http.post(`${URL}/receipts/emailReceipt` , data)
+
+  }
   getCustomToken(uid) {
     return this.http.post(`${URL}/firebaseRoutes/customToken` , {uid})
   }

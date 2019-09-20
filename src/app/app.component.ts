@@ -27,22 +27,21 @@ ngOnInit() {
     if (event instanceof NavigationEnd) {
  
   this.route.queryParams.subscribe(params => {
-console.log(params.uid);
-if ( params.uid) {
+  if ( params.uid) {
         this.apiService.getCustomToken(params.uid).subscribe(customToken => {
 
           this.token = customToken;
-          
+
           console.log(this.token);
           this.afAuth.auth.signInWithCustomToken(this.token.customToken).then(user => {
             console.log(user);
-            
+
             this.afAuth.auth.onAuthStateChanged(user => {
               if (user) {
                console.log(user);
-               
+
               } else {
-              window.location.href = 'https://restaurants-user-profile.herokuapp.com/#/authentication/signin?order=true';
+             // window.location.href = 'https://restaurants-user-profile.herokuapp.com/#/authentication/signin?order=true';
 
               }
             });
@@ -58,11 +57,13 @@ if ( params.uid) {
          });
       } else {
        window.location.href = 'https://restaurants-user-profile.herokuapp.com/#/authentication/signin?order=true';
-      }
+    
+  // window.location.href = 'http://localhost:4201/#/authentication/signin?order=true';
+    }
   });
 
 }
-  })
+  });
 }}
 
 
