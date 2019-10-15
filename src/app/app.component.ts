@@ -56,7 +56,7 @@ ngOnInit() {
            });
          });
       } else {
-       window.location.href = 'https://restaurants-user-profile.herokuapp.com/#/authentication/signin?order=true';
+    //   window.location.href = 'https://restaurants-user-profile.herokuapp.com/#/authentication/signin?order=true';
     
   // window.location.href = 'http://localhost:4201/#/authentication/signin?order=true';
     }
