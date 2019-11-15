@@ -1,57 +1,79 @@
-<mat-card class="pos-section">
-  <mat-card-title class="add-padding heading">Select Items</mat-card-title>
+
+
+<div [@displayState]="hide ? 'inactive': 'active'" class = 'p-5'>
+  <img src = '../../../assets/macdonald.png' style = 'width : 80px ;' class = 'mb-5'/>
+<h3 style = 'font-weight: bolder; font-size: 33px;'>Hey,</h3>
+<h3 style = 'font-weight: bolder; font-size: 25px;' class = 'mb-5'>What's ups?</h3>  
+<p  *ngIf = '!hide'(click) = 'back()'> <i class="fa fa-chevron-left" aria-hidden="true"></i>
+ &nbsp;&nbsp;  Back</p>
+      
 
   <mat-tab-group>
-    <mat-tab *ngFor="let type of products; let i = index" label="{{productTypes[i]}}">
-      <div class="row">
+    <mat-tab *ngFor="let type of products; let i = index" label="{{productTypes[i]}}" >
+     
 
      
       <!-- <div class="col-6 mt-2" *ngFor="let item of type | async"  (click)="addToCheck(item)" > -->
-        
-        <div class="col-6 col-md-4 col-lg-4 mt-2" *ngFor="let item of type | async"  (click)="openDialog(item) " >
+          <div class = 'd-flex  flex-wrap'>
+        <div  class=" ml-4 mt-3" *ngFor="let item of type | async"    >
+
+          <mat-card class = 'product-card' [ngClass] = "{'selectedItemClass' : selectedItem == item}" (click) = 'selecteItemFunction(item)'  >
+            <div style = 'display : block;'> 
+            <div class="row h-100 justify-content-center align-items-center animated fadeIn">
+                  <img class="product" [src]="item.Image"
+                  alt="">
+              </div>
+              <p class = 'text-center'> {{item.Name}}</p>
+ 
+            </div>   
+          </mat-card>
+
+
 
         <!-- <div [ngStyle]="{'background-image': 'url(' + item.img_url + ')'}" class="item-img"></div>
           <h3 class="item-name">{{item|json}}</h3> -->
       
   <!--Card-->
-<div class="card card-cascade card-ecommerce wider" style = 'cursor : pointer'>
+<!-- <div class="card card-cascade card-ecommerce wider" style = 'cursor : pointer'> -->
 
   <!--Card image-->
-  <div class="view view-cascade overlay">
+  <!-- <div class="view view-cascade overlay">
     <img class="card-img-top" [src]="item.Image"
       alt="">
     <a>
       <div class="mask rgba-white-slight"></div>
     </a>
-  </div>
+  </div> -->
   <!--/.Card image-->
 
   <!--Card content-->
-  <div class="card-body card-body-cascade text-center">
+  <!-- <div class="card-body card-body-cascade text-center"> -->
     <!--Category & Title-->
-    <h4 class="card-title"><strong>{{item.Name}}</strong></h4>
+    <!-- <h4 class="card -title"><strong>{{item.Name}}</strong></h4> -->
 
     <!--Description-->
-    <p class="card-text">{{item.MeatChoices}}</p>
+    <!-- <p class="card-text">{{item.MeatChoices}}</p> -->
 
     <!--Card footer-->
-    <div class="card-footer">
+    <!-- <div class="card-footer">
       <span class="float-left">{{item.Price|currency:'USD':true}}</span>
       <span class="float-right">
       </span>
-    </div>
+    </div> -->
 
-  </div>
+  <!-- </div> -->
   <!--/.Card content-->
   
-</div>
-        </div>
+<!-- </div> -->
+        <!-- </div> -->
       </div>
+    </div>
     </mat-tab>
   </mat-tab-group>
 
 
 <!--/.Card-->
 
-  
-</mat-card>
+
+
+</div>

@@ -25,7 +25,8 @@ import { AngularFireAuth } from '@angular/fire/auth';
 
 import { environment } from '../environments/environment';
 
-import {FirebaseService} from './services/firebase.service' ;
+import {FirebaseService} from './services/firebase.service';
+import { SelectedCssDirective } from './selected-css.directive' ;
 @NgModule({
   declarations: [
     AppComponent,
@@ -38,6 +39,7 @@ import {FirebaseService} from './services/firebase.service' ;
     OrderComponent,
     OrderNumberComponent,
     ThankyouComponent,
+    SelectedCssDirective,
   ],
   imports: [
    

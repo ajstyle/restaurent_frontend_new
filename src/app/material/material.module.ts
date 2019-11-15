@@ -13,15 +13,19 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatProgressBarModule} from '@angular/material/progress-bar';
+import {MatSidenavModule} from '@angular/material/sidenav';
+import {MatBottomSheetModule} from '@angular/material/bottom-sheet';
 
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   imports: [MatButtonModule, MatFormFieldModule, MatProgressSpinnerModule , MatInputModule ,
              MatListModule, MatExpansionModule, MatDividerModule, MatCheckboxModule,MatProgressBarModule,
-            MatToolbarModule, MatCardModule, MatIconModule, MatDialogModule, MatTabsModule, MatTooltipModule, MatRadioModule],
+            MatToolbarModule, MatCardModule, MatIconModule, MatDialogModule, MatTabsModule, MatTooltipModule, MatRadioModule,
+            MatSidenavModule,MatBottomSheetModule],
   exports: [MatButtonModule, MatListModule, MatProgressSpinnerModule, MatFormFieldModule, MatInputModule, 
     MatExpansionModule, MatDividerModule, MatCheckboxModule, MatToolbarModule, MatProgressBarModule , MatCardModule,
-    MatIconModule, MatDialogModule, MatTabsModule, MatTooltipModule, MatRadioModule],
+    MatIconModule, MatDialogModule, MatTabsModule, MatTooltipModule, MatRadioModule,
+    MatSidenavModule, MatBottomSheetModule],
 })
 export class MaterialModule { }

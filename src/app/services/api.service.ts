@@ -30,6 +30,7 @@ export class ApiService {
     return of(
       [
         {
+          "id" : 1 , 
           "Modifiers": {
             "Salsa": [
               {
@@ -144,6 +145,8 @@ export class ApiService {
           "Image": "https://i.imgur.com/4ouOeJs.jpg"
         },
         {
+          "id" : 2 , 
+
           "Modifiers": {
             "Salsa": [
               {
@@ -258,6 +261,8 @@ export class ApiService {
           "Image": "https://i.imgur.com/XeMEDX2.jpg"
         },
         {
+          "id" : 3 , 
+
           "Name": "Shrimp Taco Combo",
           "Price": 8.99,
           "Description": "Each Taco Plate comes with 2 Shrimp Tacos and a side of rice and beans. The tacos are garnished with pieces of onions and cilantro and drizzled with hot sauce. Each taco is made with corn tortillas.",
@@ -519,6 +524,8 @@ export class ApiService {
           "Image": "https://i.imgur.com/SWsaeVo.png"
         },
         {
+          "id" : 4 , 
+
           "Modifiers": {
             "Salsa": [
               {
@@ -633,6 +640,8 @@ export class ApiService {
           "Image": "https://i.imgur.com/lXoU575.jpg"
         },
         {
+          "id" : 5 , 
+
           "Modifiers": {
             "Combos": [
               {
@@ -739,6 +748,8 @@ export class ApiService {
           "Image": "https://i.imgur.com/DZL7mTA.jpg"
         },
         {
+          "id" : 6 , 
+
           "Modifiers": {
             "Combos": [
               {
@@ -782,6 +793,8 @@ export class ApiService {
           "Image": "https://i.imgur.com/lU4IyiY.jpg"
         },
         {
+          "id" : 7 , 
+
           "Description": "The Tostada de Camaron is made with shrimp, tomatoes, cucumbers, onions and cilantro, and mixed with our secret sauce.It comes with a side of tortilla chips.",
           "Name": "Shrimp Tostada",
           "Modifiers": {
@@ -877,104 +890,8 @@ export class ApiService {
           },
           "Price": 9.99,
           "Image": "https://i.imgur.com/NbZFf1W.jpg"
-        },
-        {
-          "Description": "The shrimp cocktail is made with large shrimp, diced cucumber and tomatoes, onions, and cilantro. The shrimp and veggies are mixed in a special tomato juice and garnished with diced avocado.",
-          "Name": "Shrimp Cocktail",
-          "Modifiers": {
-            "Vegetables": [
-              {
-                "Default": true,
-                "Price": 0,
-                "Image": "https://www.healthline.com/hlcmsresource/images/topic_centers/Food-Nutrition/732x549_Cilantro_Allergy.jpg",
-                "Quantity": 5,
-                "Item": "Cilantro"
-              },
-              {
-                "Default": false,
-                "Price": 0,
-                "Image": "https://getinspiredeveryday.com/food/wp-content/uploads/sites/5/2015/04/Ancho-Chile-Chicken-Taco-Bowls-GI-365.jpg",
-                "Quantity": 3,
-                "Item": "Lettuce"
-              },
-              {
-                "Default": true,
-                "Price": 0,
-                "Image": "http://cdn.shopify.com/s/files/1/0917/9396/products/diced_onions_grande.jpg?v=1459605830",
-                "Quantity": 5,
-                "Item": "Onions"
-              },
-              {
-                "Default": false,
-                "Price": 0.25,
-                "Image": "https://www.seededatthetable.com/wp-content/uploads/2010/09/5010760134_be11b49c1b.jpg",
-                "Quantity": 2,
-                "Item": "Pineapple"
-              },
-              {
-                "Default": false,
-                "Price": 0.05,
-                "Image": "https://1.bp.blogspot.com/-Ww87UTUssIY/VO3du9hvhoI/AAAAAAAAFws/y_2EPMLwhlQ/s1600/tomatoes.jpg",
-                "Quantity": 2,
-                "Item": "Tomatoes"
-              },
-              {
-                "Item": "Jalapenos",
-                "Image": "https://edge.bonnieplants.com/www/uploads/20180920003952/mammoth-jalapeno-hot-pepper.jpg",
-                "Default": false,
-                "Price": 0.05,
-                "Quantity": 2
-              },
-              {
-                "Item" : "Cucumbers",
-                "Default": true,
-                "Price": 0,
-                "Image": "https://www.healthline.com/hlcmsresource/images/AN_images/AN88-Cucumbers-732x549-thumb.jpg",
-                "Quantity": 1
-              }
-            ],
-            "Avocado": [
-              {
-                "Item": "Avocado Slices",
-                "Default": true,
-                "Price": 0,
-                "Image": "https://img.sndimg.com/food/image/upload/fl_progressive,c_fill,q_80,h_420,w_631/v1/img/upload/package/summerentertaining/H2_Slice_Avocado_Slices_6.jpg",
-                "Quantity": 2
-              },
-              {
-                "Item": "Guacamole",
-                "Default": false,
-                "Price": 0.5,
-                "Image": "https://www.mylatinatable.com/wp-content/uploads/2016/02/guacamole-foto-heroe.jpg",
-                "Quantity": 1
-              }
-            ],
-            "Spice Level": [
-              { 
-                "Level" : "Normal",
-                "Default": true,
-                "Price": 0
-              },
-              {
-                "Level" : "Not Hot Sauce",
-                "Default": false,
-                "Price": 0
-              },
-              {
-                "Level" : "Hot",
-                "Default": false,
-                "Price": 0
-              },
-              {
-                "Level" : "Uff",
-                "Default": false,
-                "Price": 0
-              }
-            ]
-          },
-          "Price": 10.99,
-          "Image": "https://i.imgur.com/YOQKo5C.jpg"
         }
+        
       ])
   } 
  

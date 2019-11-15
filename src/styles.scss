@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
 @import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~animate.css/animate.min';
 //Bootstrap btn
 
   /**************************
@@ -26,6 +27,10 @@
   border: 1px solid transparent;
   border-radius: 4px;
   padding: 10px 16px;
+}
+
+* {
+  margin: 0px;
 }
   
 .btn-lg {
@@ -104,3 +109,16 @@
 .custom-dialog-container .mat-dialog-container {
   padding-top: 4px;
 }
+
+.mat-tab-body {
+  display: block;
+  overflow: hidden;
+  height: auto;
+}
+
+  
+
+::-webkit-scrollbar {
+  display: none;
+}
+

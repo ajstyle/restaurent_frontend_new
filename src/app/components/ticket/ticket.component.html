@@ -1,15 +1,14 @@
 <div (window:resize)="onResize($event)">
 
-<div class="card" *ngIf = '!isMobile'>
+<div class="card" *ngIf = '!isMobile' >
   <div class="card-body">
-     <h3> Order Summary</h3>
+     <h3 > My Order</h3>
     <!-- Shopping Cart table -->
-    <div class="table-responsive-sm">
+    <!-- <div class="table-responsive-sm" >  -->
 
-      <table class="table product-table">
+      <!-- <table class="table product-table" > -->
 
-        <!-- Table head -->
-        <thead class="mdb-color lighten-5">
+        <!-- <thead class="mdb-color lighten-5">
           <tr>
             <th class="font-weight-bold">
               <strong>Product</strong>
@@ -30,14 +29,14 @@
               </th>
             <th></th>
           </tr>
-        </thead>
+        </thead> -->
         <!-- /.Table head -->
 
         <!-- Table body -->
-        <tbody>
+        <!-- <tbody> -->
 
           <!-- First row -->
-          <tr *ngFor="let item of ticketModifier" >
+          <!-- <tr *ngFor="let item of ticketModifier" >
             <td>
               <h5>
                 <strong>{{item.Name}}</strong>
@@ -87,13 +86,13 @@
                 <i class="fas fa-angle-right right" ></i>
               </button>
             </td>
-          </tr>
+          </tr> -->
           <!-- Fourth row -->
 
-        </tbody>
+        <!-- </tbody> -->
         <!-- /.Table body -->
 
-      </table>
+      <!-- </table> -->
 
     </div>
 
@@ -101,7 +100,7 @@
 
 </div>
 
-<div *ngIf = 'isMobile'>
+<!-- <div *ngIf = 'isMobile'>
     <mat-list role="list" *ngFor="let item of ticketModifier ; let i = index">
         <mat-list-item role="listitem">
               <div class="container-fluid">
@@ -165,5 +164,5 @@
                </div>
          
           </div>
-        </div>
-</div>
+        </div> -->
+  <!-- </div> -->

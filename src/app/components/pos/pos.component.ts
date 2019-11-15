@@ -4,21 +4,43 @@ import { PosService } from '../../services/pos.service';
 import { ApiService } from '../../services/api.service';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 import {ModifiersDialogComponent} from '../modifiers-dialog/modifiers-dialog.component';
-
+import {
+  trigger,
+  state,
+  style,
+  animate,
+  transition
+} from '@angular/animations';
 @Component({
   selector: 'app-pos',
   templateUrl: './pos.component.html',
-  styleUrls: ['./pos.component.scss']
+  styleUrls: ['./pos.component.scss'],
+  animations: [
+    trigger('displayState', [
+      state('inactive', style({
+        transform: 'translateY(-35%)',
+        
+      })),
+      state('active',   style({
+        transform: 'translateY(0%)'
+      
+      })),
+      transition('inactive => active', animate('500ms ease-in')),
+      transition('active => inactive', animate('500ms ease-out'))
+    ])
+  ]
 })
 export class PosComponent implements OnInit {
-
+  hide = false;
+  name = 'Angular 5';
+  data = '<h1>test</h1>';
   products = [];
   productTypes = ['Sea Food', 'Mexican Food' , 'Deals'];
   ticket: Item[];
   cartTotal = 0;
   cartNumItems = 0;
   items;
-
+  selectedItem ; 
   constructor(private ticketSync: PosService, private db: ApiService, public dialog: MatDialog) { }
 
   ngOnInit() {
@@ -45,7 +67,6 @@ export class PosComponent implements OnInit {
 
 
 
-
   addToCheck(item: Item) {
     // If the item already exists, add 1 to quantity
     if (this.ticket.includes(item)) {
@@ -56,7 +77,15 @@ export class PosComponent implements OnInit {
     console.log(this.ticket);
     this.calculateTotal();
   }
-
+  back() {
+    this.hide = false ; 
+  }
+  
+  selecteItemFunction(item) {
+    console.log('item======', item);
+    this.hide = true ; 
+    this.selectedItem = item ;
+  }
   // Calculate cart total
   calculateTotal() {
     let total = 0;
